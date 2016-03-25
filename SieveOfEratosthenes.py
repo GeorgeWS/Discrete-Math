@@ -8,16 +8,14 @@ def main():
         "found by the Sieve of Eratosthenes.")
     else:
         n = int(sys.argv[1])
-        primes = primesBySieveOfEratosthenes(n)
-        print primes
+        print primesBySieveOfEratosthenes(n)
 
 def primesBySieveOfEratosthenes(n):
     """Returns the set of all primes less than or equal to n found by the Sieve
     of Eratosthenes"""
     sieve = set([i for i in range(2, n + 1)]) # Start with [2, n]
-    root_n = int(math.sqrt(n))
     # For everything in the sieve up to the square root of n...
-    for i in range(2, root_n + 1):
+    for i in range(2, int(math.sqrt(n)) + 1):
         if i in sieve:
             # Remove all multiples of i (only considering those less than n,
             # i.e. those that were in the sieve to begin with).
